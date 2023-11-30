@@ -1,0 +1,1 @@
+ShopList es una aplicación .NET MAUI que permite administrar una lista de compras.
