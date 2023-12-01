@@ -1,12 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShopList.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShopList.ViewModels
 {
@@ -28,7 +23,7 @@ namespace ShopList.ViewModels
             ShopListItem item = new ShopListItem 
             {
                 Name = ItemName,
-                Done = false
+                IsBought = false
             };
             ShopList.Add(item);
         }
