@@ -1,9 +1,24 @@
-﻿namespace ShopList.Models
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace ShopList.Models
 {
     public class ShopListItem
     {
-        public int ID { get; set; }
+        [Key]
+        public Guid ID { get; set; }
+        [Required]
         public string Name { get; set; }
-        public bool Done { get; set; }
+        [DefaultValue(false)]
+        public bool IsBuyed { get; set; }
+
+        public ShopListItem() { }
+
+        public ShopListItem(string name)
+        {
+            ID = Guid.NewGuid();
+            Name = name;
+            IsBuyed = false;
+        }
     }
 }

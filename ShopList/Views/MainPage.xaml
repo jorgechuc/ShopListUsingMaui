@@ -29,7 +29,7 @@
                 />
 
         </Grid>
-        
+
         <CollectionView
             Grid.Row="1"
             Margin="8,4,8,0"
@@ -45,12 +45,13 @@
                             Padding="8,4,8,4"
                             BackgroundColor="{StaticResource Primary}"
                             >
-                            <Label
-                                Text="{Binding Name}"
-                                FontSize="Default"
-                                TextColor="White"
-                                BackgroundColor="{StaticResource Primary}"
-                                />
+                            <HorizontalStackLayout>
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontSize="Default"
+                                    TextColor="White"
+                                    />
+                            </HorizontalStackLayout>
                         </Frame>
                     </Grid>
                 </DataTemplate>

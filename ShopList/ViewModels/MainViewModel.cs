@@ -1,12 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShopList.Models;
-using System;
-using System.Collections.Generic;
+using ShopList.Persistence;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShopList.ViewModels
 {
@@ -15,22 +11,41 @@ namespace ShopList.ViewModels
         [ObservableProperty]
         private string _itemName;
 
-        public ObservableCollection<ShopListItem> ShopList { get; set; }
+        [ObservableProperty]
+        public ObservableCollection<ShopListItem> _shopList;
+
+        private ShopListItemDatabase _database;
 
         public MainViewModel()
         {
-            ShopList = new ObservableCollection<ShopListItem>();
+            _database = new ShopListItemDatabase();
+            LoadShopListAsync();
+            
         }
 
         [RelayCommand]
-        private void Add()
+        private async Task Add()
         {
-            ShopListItem item = new ShopListItem 
+            if (string.IsNullOrEmpty(ItemName)) 
             {
-                Name = ItemName,
-                Done = false
-            };
+                return;
+            }
+            ShopListItem item = new ShopListItem(ItemName); 
+            await _database.SaveShopListItem(item);
             ShopList.Add(item);
+        }
+
+        private async void LoadShopListAsync()
+        {
+            ShopList = new ObservableCollection<ShopListItem>();
+            var items = await _database.GetShopListItems();
+            if (items is not null && items.Any<ShopListItem>())
+            {
+                foreach (var item in items)
+                {
+                    ShopList.Add(item);
+                }
+            }
         }
     }
 }
