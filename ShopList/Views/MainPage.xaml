@@ -32,19 +32,22 @@
 
         <CollectionView
             Grid.Row="1"
-            Margin="8,4,8,0"
+            Margin="4"
             EmptyView="Tu lista de compras está vacía"
             ItemsSource="{Binding ShopList}"
             >
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type models:ShopListItem}">
-                    <Grid
-                        Margin="0,3">
-                        <Frame
-                            CornerRadius="6"
-                            Padding="8,4,8,4"
-                            BackgroundColor="{StaticResource Primary}"
+                    <Frame
+                        CornerRadius="6"
+                        Margin="0,2"
+                        Padding="8,4"
+                        VerticalOptions="Center"
+                        BackgroundColor="{StaticResource Primary}"
+                        >
+                        <Grid 
                             >
+<<<<<<< HEAD
                             <HorizontalStackLayout>
                                 <Label
                                     Text="{Binding Name}"
@@ -54,6 +57,17 @@
                             </HorizontalStackLayout>
                         </Frame>
                     </Grid>
+=======
+                            <Label
+                                Text="{Binding Name}"
+                                HorizontalOptions="Fill"
+                                FontSize="Default"
+                                TextColor="White"
+                                BackgroundColor="{StaticResource Primary}"
+                                />
+                        </Grid>
+                    </Frame>
+>>>>>>> df6b10c3096253867d02b27571fb308bb5c96f16
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

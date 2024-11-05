@@ -1,7 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShopList.Models;
+<<<<<<< HEAD
 using ShopList.Persistence;
+=======
+>>>>>>> df6b10c3096253867d02b27571fb308bb5c96f16
 using System.Collections.ObjectModel;
 
 namespace ShopList.ViewModels
@@ -28,10 +31,16 @@ namespace ShopList.ViewModels
         {
             if (string.IsNullOrEmpty(ItemName)) 
             {
+<<<<<<< HEAD
                 return;
             }
             ShopListItem item = new ShopListItem(ItemName); 
             await _database.SaveShopListItem(item);
+=======
+                Name = ItemName,
+                IsBought = false
+            };
+>>>>>>> df6b10c3096253867d02b27571fb308bb5c96f16
             ShopList.Add(item);
         }
 

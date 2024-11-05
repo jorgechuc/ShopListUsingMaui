@@ -9,6 +9,7 @@ namespace ShopList.Models
         public Guid ID { get; set; }
         [Required]
         public string Name { get; set; }
+<<<<<<< HEAD
         [DefaultValue(false)]
         public bool IsBuyed { get; set; }
 
@@ -20,5 +21,8 @@ namespace ShopList.Models
             Name = name;
             IsBuyed = false;
         }
+=======
+        public bool IsBought { get; set; }
+>>>>>>> df6b10c3096253867d02b27571fb308bb5c96f16
     }
 }
